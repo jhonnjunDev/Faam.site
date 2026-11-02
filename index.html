@@ -88,13 +88,15 @@
     <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
     <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pix" viewBox="0 0 24 24"><path d="M8.6 2.9a4.7 4.7 0 0 1 6.8 0l5.7 6.2a4.7 4.7 0 0 1 0 5.8l-5.7 6.2a4.7 4.7 0 0 1-6.8 0l-5.7-6.2a4.7 4.7 0 0 1 0-5.8z"/><path d="M12 8.4 15.6 12 12 15.6 8.4 12z"/><circle cx="12" cy="12" r="0.2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
   </svg>
 
   <!-- Cabeçalho -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#inicio" class="brand" aria-label="FAAM — página inicial">
-        <img src="images/logo.svg" alt="" class="brand__mark" width="48" height="48">
+        <img src="images/logo-emblema.svg" alt="Símbolo da FAAM — coração com figuras" class="brand__mark" width="48" height="48">
         <span class="brand__text">
           <strong>FAAM</strong>
           <small>Fundação Antônio Augusto de Mattos</small>
@@ -428,8 +430,8 @@
           <article class="ajudar__card reveal" style="--d:.08s">
             <span class="ajudar__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
             <h3>Doações em dinheiro</h3>
-            <p>Contribuições únicas ou mensais ajudam a manter alimentação, medicamentos, estrutura e cuidados do dia a dia.</p>
-            <a href="#contato" class="link-arrow">Falar com a FAAM <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+            <p>Contribuições únicas ou mensais ajudam a manter alimentação, medicamentos, estrutura e cuidados do dia a dia. Doe pelo Pix em segundos.</p>
+            <a href="#pix" class="link-arrow">Ver as chaves Pix <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
           </article>
 
           <article class="ajudar__card reveal" style="--d:.16s">
@@ -458,6 +460,36 @@
                 <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
                 Enviar e-mail
               </a>
+            </div>
+
+            <div class="pix" id="pix">
+              <p class="pix__title">
+                <svg class="icon" aria-hidden="true"><use href="#i-pix"></use></svg>
+                Doe pelo Pix — rapidez e segurança
+              </p>
+              <div class="pix__keys">
+                <div class="pix__key">
+                  <span class="pix__label">CNPJ</span>
+                  <code class="pix__value">08.850.114/0001-32</code>
+                  <button class="pix__copy" type="button" data-copy="08850114000132" aria-label="Copiar chave Pix CNPJ 08.850.114/0001-32">
+                    <svg class="icon" aria-hidden="true"><use href="#i-copy"></use></svg>
+                    Copiar
+                  </button>
+                </div>
+                <div class="pix__key">
+                  <span class="pix__label">E-mail</span>
+                  <code class="pix__value">secretariafaam@gmail.com</code>
+                  <button class="pix__copy" type="button" data-copy="secretariafaam@gmail.com" aria-label="Copiar chave Pix e-mail secretariafaam@gmail.com">
+                    <svg class="icon" aria-hidden="true"><use href="#i-copy"></use></svg>
+                    Copiar
+                  </button>
+                </div>
+              </div>
+              <p class="pix__hint">
+                <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+                Toque em <strong>Copiar</strong>, cole no app do seu banco e confirme o nome do recebedor:
+                <strong>Fundação Antônio Augusto de Mattos</strong>.
+              </p>
             </div>
           </div>
 
@@ -668,7 +700,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a href="#inicio" class="brand brand--footer" aria-label="FAAM — página inicial">
-          <img src="images/logo-branco.svg" alt="" class="brand__mark" width="48" height="48" loading="lazy">
+          <img src="images/logo-emblema-branco.svg" alt="" class="brand__mark" width="48" height="48" loading="lazy">
           <span class="brand__text">
             <strong>FAAM</strong>
             <small>Fundação Antônio Augusto de Mattos</small>

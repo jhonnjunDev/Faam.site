@@ -308,6 +308,47 @@
   }
 
   /* ------------------------------------------------------------------
+     Chaves Pix: copiar ao clicar
+     ------------------------------------------------------------------ */
+  document.querySelectorAll(".pix__copy").forEach((botao) => {
+    botao.addEventListener("click", async () => {
+      const chave = botao.getAttribute("data-copy");
+      let copiado = false;
+      try {
+        await navigator.clipboard.writeText(chave);
+        copiado = true;
+      } catch (_) {
+        // Plano B: seleção manual + execCommand (navegadores antigos/HTTP)
+        const area = document.createElement("textarea");
+        area.value = chave;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        try {
+          copiado = document.execCommand("copy");
+        } catch (_) {
+          copiado = false;
+        }
+        document.body.removeChild(area);
+      }
+      if (copiado) {
+        const rotulo = botao.innerHTML;
+        botao.classList.add("copiado");
+        botao.setAttribute("aria-live", "polite");
+        botao.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Copiado!';
+        setTimeout(() => {
+          botao.classList.remove("copiado");
+          botao.innerHTML = rotulo;
+        }, 2200);
+      } else {
+        window.prompt("Copie a chave Pix (Ctrl+C):", chave);
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------------
      Ano atual no rodapé
      ------------------------------------------------------------------ */
   const ano = document.getElementById("anoAtual");
