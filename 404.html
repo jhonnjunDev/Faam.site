@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada — FAAM</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0F4D33">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230F4D33'/><path d='M32 13.5 50.5 28v21.5a1.5 1.5 0 0 1-1.5 1.5H15a1.5 1.5 0 0 1-1.5-1.5V28Z' fill='none' stroke='%23E8C27A' stroke-width='2.6'/><path d='M32 47.5c-6.8-5-11.3-8.4-11.3-12.9a5.6 5.6 0 0 1 11.3-1.6 5.6 5.6 0 0 1 11.3 1.6c0 4.5-4.5 7.9-11.3 12.9Z' fill='%23D9A441'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-900: #0B3B27; --verde-800: #0F4D33; --verde-600: #1C7550;
+      --dourado: #D9A441; --creme: #FBF8F1; --texto: #1E2E27; --suave: #56675E;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 32px 22px;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--texto);
+      background:
+        radial-gradient(800px 500px at 90% 0%, rgba(217,164,65,.18), transparent 60%),
+        radial-gradient(700px 500px at 0% 100%, rgba(46,139,98,.12), transparent 60%),
+        var(--creme);
+    }
+    main { width: 100%; max-width: 560px; }
+    .marca { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 40px; text-decoration: none; color: inherit; }
+    .marca svg { width: 48px; height: 48px; }
+    .marca strong { display: block; font-family: "Fraunces", serif; font-size: 1.3rem; letter-spacing: .04em; color: var(--verde-900); }
+    .marca small { display: block; font-size: .6rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--suave); }
+    .kicker { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: .72rem; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; color: #B8862F; }
+    .kicker::before { content: ""; width: 26px; height: 2px; border-radius: 2px; background: var(--dourado); }
+    h1 { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(2.2rem, 7vw, 3.3rem); line-height: 1.05; letter-spacing: -.03em; color: var(--verde-900); margin-bottom: 16px; }
+    p { color: var(--suave); max-width: 44ch; margin-bottom: 28px; line-height: 1.7; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: 999px; font-size: .9rem; font-weight: 600; text-decoration: none; transition: .25s ease; }
+    .btn--verde { background: var(--verde-800); color: #fff; }
+    .btn--verde:hover { background: var(--verde-600); }
+    .btn--linha { border: 1.5px solid rgba(15,77,51,.3); color: var(--verde-800); }
+    .btn--linha:hover { border-color: var(--verde-800); background: rgba(15,77,51,.05); }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="#" class="marca" data-inicio aria-label="FAAM — página inicial">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="31" fill="#0F4D33"/>
+        <circle cx="32" cy="32" r="28.5" fill="none" stroke="#D9A441" stroke-width="1.2" opacity=".55"/>
+        <path d="M32 13.5 50.5 28v21.5a1.5 1.5 0 0 1-1.5 1.5H15a1.5 1.5 0 0 1-1.5-1.5V28Z" fill="none" stroke="#E8C27A" stroke-width="2.6" stroke-linejoin="round"/>
+        <path d="M32 47.5c-6.8-5-11.3-8.4-11.3-12.9a5.6 5.6 0 0 1 11.3-1.6 5.6 5.6 0 0 1 11.3 1.6c0 4.5-4.5 7.9-11.3 12.9Z" fill="#D9A441"/>
+      </svg>
+      <span>
+        <strong>FAAM</strong>
+        <small>Fundação Antônio Augusto de Mattos</small>
+      </span>
+    </a>
+
+    <p class="kicker">Erro 404</p>
+    <h1>Esta página não existe.</h1>
+    <p>
+      O endereço pode ter mudado ou a página foi removida. Volte ao início
+      para conhecer a Fundação ou fale com a nossa secretaria pelo telefone
+      (38) 3228-1611.
+    </p>
+
+    <div class="acoes">
+      <a href="#" class="btn btn--verde" data-inicio>Voltar ao início</a>
+      <a href="https://www.instagram.com/fundacaoantoniodemattosfaam/" target="_blank" rel="noopener" class="btn btn--linha">Instagram da FAAM</a>
+    </div>
+  </main>
+
+  <script>
+    // Descobre a raiz do site (funciona em usuario.github.io/repositorio/)
+    (function () {
+      var partes = location.pathname.split("/").filter(Boolean);
+      var raiz;
+
+      if (!partes.length || (partes.length === 1 && /\.[a-z0-9]+$/i.test(partes[0]))) {
+        // dominio raiz ou /404.html
+        raiz = "/";
+      } else {
+        // pagina de projeto: /repositorio/...
+        raiz = "/" + partes[0] + "/";
+      }
+
+      document.querySelectorAll("[data-inicio]").forEach(function (a) {
+        a.setAttribute("href", raiz);
+      });
+    })();
+  </script>
+</body>
+</html>
