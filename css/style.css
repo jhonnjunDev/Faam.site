@@ -943,6 +943,7 @@ h3 { font-size: 1.22rem; line-height: 1.25; letter-spacing: -0.01em; }
 .doacao__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 
 .doacao__list {
+  align-self: start;
   padding: 26px 28px;
   border-radius: var(--raio);
   background: rgba(255, 255, 255, 0.07);
