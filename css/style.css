@@ -44,6 +44,8 @@
 
   --transicao: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
   --container: 1180px;
+  --natal-vermelho: #A8323E;
+  --natal-vermelho-escuro: #812632;
 }
 
 html {
@@ -244,6 +246,30 @@ h3 { font-size: 1.22rem; line-height: 1.25; letter-spacing: -0.01em; }
   transition: background var(--transicao), box-shadow var(--transicao),
               border-color var(--transicao), padding var(--transicao);
 }
+body.tema-natal .header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, var(--natal-vermelho) 0 42px, var(--dourado) 42px 84px, var(--verde-900) 84px 126px);
+}
+body.tema-natal--luzes .header::before {
+  height: 3px;
+  background: linear-gradient(90deg, #B8862F, #F0CE86, #D9A441, #F0CE86, #B8862F);
+}
+body.tema-natal--luzes .header::after {
+  content: "";
+  position: absolute;
+  inset: 3px 0 auto;
+  height: 10px;
+  background-image:
+    radial-gradient(circle at 8px 4px, #D9A441 0 2.5px, transparent 3px),
+    radial-gradient(circle at 26px 4px, #A8323E 0 2.5px, transparent 3px),
+    radial-gradient(circle at 44px 4px, #2E8B62 0 2.5px, transparent 3px);
+  background-size: 54px 9px;
+  background-repeat: repeat-x;
+  pointer-events: none;
+}
 .header.is-scrolled {
   padding-block: 9px;
   background: rgba(251, 248, 241, 0.96);
@@ -349,6 +375,55 @@ h3 { font-size: 1.22rem; line-height: 1.25; letter-spacing: -0.01em; }
     radial-gradient(1000px 600px at 88% -10%, rgba(217, 164, 65, 0.16), transparent 60%),
     radial-gradient(800px 500px at -10% 110%, rgba(46, 139, 98, 0.1), transparent 60%),
     var(--creme);
+}
+body.tema-natal .hero {
+  background:
+    radial-gradient(800px 500px at 88% -10%, rgba(168, 50, 62, 0.12), transparent 60%),
+    radial-gradient(800px 500px at -10% 110%, rgba(46, 139, 98, 0.12), transparent 60%),
+    var(--creme);
+}
+
+.hero__seasonal-note {
+  display: none;
+}
+body.tema-natal .hero__seasonal-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 8px 13px;
+  border: 1px solid rgba(168, 50, 62, 0.2);
+  border-radius: 4px 999px 999px 4px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 20px -14px rgba(6, 40, 27, 0.55);
+  color: var(--natal-vermelho-escuro);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+body.tema-natal .hero__seasonal-note .icon { width: 16px; height: 16px; }
+body.tema-natal .hero__title em { color: var(--natal-vermelho); }
+body.tema-natal .hero__line { background: var(--natal-vermelho); }
+body.tema-natal .btn--green { background: var(--natal-vermelho-escuro); }
+body.tema-natal .btn--green:hover { background: var(--natal-vermelho); }
+body.tema-natal .hero__badge {
+  border: 2px solid var(--dourado-claro);
+  background: var(--natal-vermelho-escuro);
+}
+body.tema-natal--luzes .hero {
+  background:
+    radial-gradient(800px 500px at 88% -10%, rgba(217, 164, 65, 0.2), transparent 60%),
+    radial-gradient(800px 500px at -10% 110%, rgba(46, 139, 98, 0.12), transparent 60%),
+    var(--creme);
+}
+body.tema-natal--luzes .hero__title em { color: var(--dourado-escuro); }
+body.tema-natal--luzes .hero__line { background: var(--dourado); }
+body.tema-natal--luzes .btn--green { background: var(--verde-800); }
+body.tema-natal--luzes .btn--green:hover { background: var(--verde-600); }
+body.tema-natal--luzes .hero__badge { background: var(--verde-900); }
+body.tema-natal--luzes .hero__seasonal-note {
+  border-color: rgba(184, 134, 47, 0.3);
+  background: rgba(240, 206, 134, 0.22);
+  color: var(--verde-900);
 }
 
 .hero__deco {
@@ -1407,6 +1482,110 @@ h3 { font-size: 1.22rem; line-height: 1.25; letter-spacing: -0.01em; }
 .to-top:hover { background: var(--verde-600); }
 .to-top .icon { width: 20px; height: 20px; }
 
+.tema-natal-toggle {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 0 17px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: var(--verde-900);
+  color: var(--branco);
+  box-shadow: 0 14px 30px -12px rgba(11, 59, 39, 0.6);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background var(--transicao), transform var(--transicao);
+}
+.tema-natal-toggle:hover { background: var(--natal-vermelho-escuro); transform: translateY(-2px); }
+.tema-natal-toggle .icon { width: 18px; height: 18px; color: var(--dourado-claro); }
+body:not(.tema-natal) .tema-natal-toggle { background: var(--verde-800); }
+body.tema-natal--luzes .tema-natal-toggle { background: #F0CE86; color: var(--verde-950); }
+body.tema-natal--luzes .tema-natal-toggle .icon { color: var(--verde-800); }
+
+.natal-particulas {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  pointer-events: none;
+}
+body:not(.tema-natal) .natal-particulas { display: none; }
+.natal-particulas span {
+  position: absolute;
+  left: var(--x);
+  top: -10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 40, 27, 0.48);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7), 0 1px 5px 2px rgba(6, 40, 27, 0.34);
+  animation: neve-caindo var(--tempo) linear var(--atraso) infinite;
+}
+.natal-particulas span:nth-child(4n) {
+  width: 7px;
+  height: 7px;
+}
+.natal-particulas span:nth-child(1) { --x: 8%; --tempo: 13s; --atraso: -2s; --vento: 22px; }
+.natal-particulas span:nth-child(2) { --x: 18%; --tempo: 17s; --atraso: -11s; --vento: -16px; }
+.natal-particulas span:nth-child(3) { --x: 29%; --tempo: 15s; --atraso: -6s; --vento: 12px; }
+.natal-particulas span:nth-child(4) { --x: 40%; --tempo: 19s; --atraso: -15s; --vento: -24px; }
+.natal-particulas span:nth-child(5) { --x: 52%; --tempo: 14s; --atraso: -4s; --vento: 18px; }
+.natal-particulas span:nth-child(6) { --x: 64%; --tempo: 18s; --atraso: -12s; --vento: -20px; }
+.natal-particulas span:nth-child(7) { --x: 76%; --tempo: 16s; --atraso: -8s; --vento: 14px; }
+.natal-particulas span:nth-child(8) { --x: 87%; --tempo: 20s; --atraso: -17s; --vento: -28px; }
+.natal-particulas span:nth-child(9) { --x: 96%; --tempo: 13.5s; --atraso: -5s; --vento: 20px; }
+.natal-particulas span:nth-child(10) { --x: 6%; --tempo: 18.5s; --atraso: -14s; --vento: -18px; }
+.natal-particulas span:nth-child(11) { --x: 34%; --tempo: 15.5s; --atraso: -9s; --vento: 24px; }
+.natal-particulas span:nth-child(12) { --x: 58%; --tempo: 21s; --atraso: -19s; --vento: -14px; }
+.natal-particulas span:nth-child(13) { --x: 72%; --tempo: 14.5s; --atraso: -7s; --vento: 16px; }
+.natal-particulas span:nth-child(14) { --x: 93%; --tempo: 17.5s; --atraso: -13s; --vento: -22px; }
+
+@keyframes neve-caindo {
+  0% { opacity: 0; transform: translate3d(0, 0, 0); }
+  8%, 88% { opacity: 0.82; }
+  100% { opacity: 0; transform: translate3d(var(--vento), calc(100vh + 20px), 0); }
+}
+
+body.tema-natal--luzes .natal-particulas span {
+  top: -24px;
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: #F0CE86;
+  font-family: "Segoe UI Symbol", sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(240, 206, 134, 0.9), 0 0 18px rgba(217, 164, 65, 0.75);
+  animation: neve-caindo var(--tempo) linear var(--atraso) infinite;
+}
+body.tema-natal--luzes .natal-particulas span::before {
+  content: "✦";
+  display: block;
+}
+body.tema-natal--luzes .natal-particulas span:nth-child(3n)::before { content: "✧"; }
+
+body.tema-natal .hero__blob {
+  background:
+    radial-gradient(circle at 35% 35%, rgba(217, 164, 65, 0.32), transparent 42%),
+    radial-gradient(circle at 68% 60%, rgba(168, 50, 62, 0.18), transparent 58%),
+    radial-gradient(circle at 40% 72%, rgba(46, 139, 98, 0.14), transparent 65%);
+}
+body.tema-natal--luzes .hero__blob {
+  background: radial-gradient(circle at 40% 40%, rgba(217, 164, 65, 0.36), rgba(217, 164, 65, 0.04) 68%);
+}
+@media (max-width: 720px) {
+  .natal-particulas span:nth-child(n + 11) { display: none; }
+}
+
 /* ==========================================================================
    Lightbox
    ========================================================================== */
@@ -1619,6 +1798,7 @@ h3 { font-size: 1.22rem; line-height: 1.25; letter-spacing: -0.01em; }
 /* ---------- Movimento reduzido ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .natal-particulas { display: none !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

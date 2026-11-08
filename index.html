@@ -60,7 +60,12 @@
   }
   </script>
 </head>
-<body>
+<body class="tema-natal tema-natal--luzes">
+
+  <div class="natal-particulas" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
 
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
@@ -133,6 +138,10 @@
 
       <div class="container hero__grid">
         <div class="hero__content">
+          <p class="hero__seasonal-note">
+            <svg class="icon" aria-hidden="true"><use href="#i-gift"></use></svg>
+            Um Natal de carinho na FAAM
+          </p>
           <p class="hero__kicker">
             <span class="hero__line"></span>
             Coração de Jesus · Minas Gerais
@@ -392,6 +401,60 @@
             <picture>
               <source srcset="images/galeria/06-cuidado-e-carinho.webp" type="image/webp">
               <img src="images/galeria/06-cuidado-e-carinho.jpg" alt="Registro do cuidado diário na FAAM" loading="lazy" width="1000" height="1000">
+            </picture>
+            <span class="galeria__hover" aria-hidden="true">
+              <svg class="icon"><use href="#i-sparkle"></use></svg>
+            </span>
+          </button>
+          <button class="galeria__item reveal" type="button" data-index="6" data-caption="Encontro com os moradores · 2025" aria-label="Ampliar foto: Encontro com os moradores" style="--d:.3s">
+            <picture>
+              <source srcset="images/galeria/07-encontro-com-os-moradores.webp" type="image/webp">
+              <img src="images/galeria/07-encontro-com-os-moradores.jpg" alt="Moradores e equipe reunidos em encontro na FAAM" loading="lazy" width="1000" height="450">
+            </picture>
+            <span class="galeria__hover" aria-hidden="true">
+              <svg class="icon"><use href="#i-sparkle"></use></svg>
+            </span>
+          </button>
+          <button class="galeria__item reveal" type="button" data-index="7" data-caption="Reunião da equipe · 2025" aria-label="Ampliar foto: Reunião da equipe" style="--d:.35s">
+            <picture>
+              <source srcset="images/galeria/08-reuniao-da-equipe.webp" type="image/webp">
+              <img src="images/galeria/08-reuniao-da-equipe.jpg" alt="Equipe da FAAM reunida em reunião de trabalho" loading="lazy" width="1000" height="753">
+            </picture>
+            <span class="galeria__hover" aria-hidden="true">
+              <svg class="icon"><use href="#i-sparkle"></use></svg>
+            </span>
+          </button>
+          <button class="galeria__item reveal" type="button" data-index="8" data-caption="Natal na FAAM · 2025" aria-label="Ampliar foto: Natal na FAAM" style="--d:.4s">
+            <picture>
+              <source srcset="images/galeria/09-natal-na-faam.webp" type="image/webp">
+              <img src="images/galeria/09-natal-na-faam.jpg" alt="Enfeites de Natal decorando o espaço da FAAM" loading="lazy" width="1000" height="753">
+            </picture>
+            <span class="galeria__hover" aria-hidden="true">
+              <svg class="icon"><use href="#i-sparkle"></use></svg>
+            </span>
+          </button>
+          <button class="galeria__item reveal" type="button" data-index="9" data-caption="Arraiá da FAAM · 2026" aria-label="Ampliar foto: Arraiá da FAAM" style="--d:.45s">
+            <picture>
+              <source srcset="images/galeria/10-arraia-da-faam.webp" type="image/webp">
+              <img src="images/galeria/10-arraia-da-faam.jpg" alt="Painel decorativo do Arraiá da FAAM na festa junina" loading="lazy" width="1000" height="450">
+            </picture>
+            <span class="galeria__hover" aria-hidden="true">
+              <svg class="icon"><use href="#i-sparkle"></use></svg>
+            </span>
+          </button>
+          <button class="galeria__item reveal" type="button" data-index="10" data-caption="Festança da festa junina · 2026" aria-label="Ampliar foto: Festança da festa junina" style="--d:.5s">
+            <picture>
+              <source srcset="images/galeria/11-festanca-da-festa-junina.webp" type="image/webp">
+              <img src="images/galeria/11-festanca-da-festa-junina.jpg" alt="Idosos com chapéus de festa junina em torno das mesas" loading="lazy" width="1000" height="2222">
+            </picture>
+            <span class="galeria__hover" aria-hidden="true">
+              <svg class="icon"><use href="#i-sparkle"></use></svg>
+            </span>
+          </button>
+          <button class="galeria__item reveal" type="button" data-index="11" data-caption="Dança e alegria no Arraiá · 2026" aria-label="Ampliar foto: Dança e alegria no Arraiá" style="--d:.55s">
+            <picture>
+              <source srcset="images/galeria/12-danca-e-alegria-no-arraia.webp" type="image/webp">
+              <img src="images/galeria/12-danca-e-alegria-no-arraia.jpg" alt="Equipe e moradores dançando de chapéu no Arraiá da FAAM" loading="lazy" width="1000" height="2222">
             </picture>
             <span class="galeria__hover" aria-hidden="true">
               <svg class="icon"><use href="#i-sparkle"></use></svg>
@@ -761,6 +824,11 @@
   <!-- Botão voltar ao topo -->
   <button class="to-top" id="toTop" aria-label="Voltar ao topo">
     <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+  </button>
+
+  <button class="tema-natal-toggle" id="temaNatalToggle" type="button" aria-label="Tema atual: Luzes douradas. Clique para trocar o tema.">
+    <svg class="icon" aria-hidden="true"><use href="#i-gift"></use></svg>
+    <span aria-live="polite">Tema: Luzes douradas</span>
   </button>
 
   <!-- Lightbox da galeria -->

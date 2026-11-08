@@ -12,6 +12,28 @@
      ------------------------------------------------------------------ */
   const header = document.getElementById("header");
   const toTop = document.getElementById("toTop");
+  const temaNatalToggle = document.getElementById("temaNatalToggle");
+  const temasNatalinos = [
+    { classe: "tema-natal--luzes", nome: "Luzes douradas" },
+    { classe: "", nome: "Visual original" },
+  ];
+  let temaAtual = 0;
+
+  temaNatalToggle.addEventListener("click", () => {
+    temaAtual = (temaAtual + 1) % temasNatalinos.length;
+    const tema = temasNatalinos[temaAtual];
+    document.body.classList.remove(
+      "tema-natal",
+      "tema-natal--luzes"
+    );
+
+    if (tema.classe) document.body.classList.add("tema-natal", tema.classe);
+    temaNatalToggle.querySelector("span").textContent = "Tema: " + tema.nome;
+    temaNatalToggle.setAttribute(
+      "aria-label",
+      "Tema atual: " + tema.nome + ". Clique para trocar o tema."
+    );
+  });
 
   const aoRolar = () => {
     const y = window.scrollY;
