@@ -353,4 +353,6 @@
      ------------------------------------------------------------------ */
   const ano = document.getElementById("anoAtual");
   if (ano) ano.textContent = new Date().getFullYear();
+
+  document.documentElement.classList.add("js");
 })();
