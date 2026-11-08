@@ -1482,31 +1482,6 @@ body.tema-natal--luzes .hero__seasonal-note {
 .to-top:hover { background: var(--verde-600); }
 .to-top .icon { width: 20px; height: 20px; }
 
-.tema-natal-toggle {
-  position: fixed;
-  left: 22px;
-  bottom: 22px;
-  z-index: 90;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 48px;
-  padding: 0 17px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
-  background: var(--verde-900);
-  color: var(--branco);
-  box-shadow: 0 14px 30px -12px rgba(11, 59, 39, 0.6);
-  font-size: 0.82rem;
-  font-weight: 600;
-  transition: background var(--transicao), transform var(--transicao);
-}
-.tema-natal-toggle:hover { background: var(--natal-vermelho-escuro); transform: translateY(-2px); }
-.tema-natal-toggle .icon { width: 18px; height: 18px; color: var(--dourado-claro); }
-body:not(.tema-natal) .tema-natal-toggle { background: var(--verde-800); }
-body.tema-natal--luzes .tema-natal-toggle { background: #F0CE86; color: var(--verde-950); }
-body.tema-natal--luzes .tema-natal-toggle .icon { color: var(--verde-800); }
-
 .natal-particulas {
   position: fixed;
   inset: 0;
