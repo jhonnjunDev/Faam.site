@@ -31,6 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/carta.css">
 
   <!-- Dados estruturados para o Google -->
   <script type="application/ld+json">
@@ -155,6 +156,11 @@
             </a>
             <a href="#como-ajudar" class="btn btn--outline">Como ajudar</a>
           </div>
+
+          <a href="carta.html" class="hero__carta-link" data-carta-open>
+            <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
+            Leia a carta aberta aos doadores
+          </a>
 
           <ul class="hero__trust">
             <li>
@@ -784,6 +790,7 @@
           <li><a href="#como-ajudar">Como ajudar</a></li>
           <li><a href="#transparencia">Transparência</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="carta.html" data-carta-open>Carta aberta aos doadores</a></li>
         </ul>
       </nav>
 
@@ -838,6 +845,113 @@
     <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Próxima foto">
       <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
     </button>
+  </div>
+
+  <!-- Popup: carta aberta aos doadores -->
+  <div class="carta-popup" id="cartaPopup" role="dialog" aria-modal="true" aria-labelledby="cartaPopupTitulo" hidden>
+    <div class="carta-popup__overlay" data-carta-fechar></div>
+
+    <div class="carta-popup__card" role="document">
+      <button type="button" class="carta-popup__fechar" data-carta-fechar aria-label="Fechar carta aberta aos doadores">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+
+      <header class="carta-popup__topo">
+        <p class="kicker">Carta aberta aos doadores</p>
+        <h2 id="cartaPopupTitulo">Obrigado por <em>fazer parte</em> desta história.</h2>
+        <p>
+          Uma carta aberta a todos os doadores que, com generosidade, tornam
+          possível o cuidado, o carinho e a dignidade dos nossos idosos.
+        </p>
+      </header>
+
+      <div class="carta-popup__rolagem">
+        <article class="carta-papel">
+          <header class="carta-papel__cabecalho">
+            <img src="images/logo-emblema.svg" alt="" class="carta-papel__logo" width="46" height="46" loading="lazy">
+            <div class="carta-papel__marca">
+              <strong>Fundação Antônio Augusto de Mattos</strong>
+              <span>Rua João Lafetá, 220 · Centro · Coração de Jesus/MG</span>
+              <span>CNPJ 08.850.114/0001-32</span>
+            </div>
+          </header>
+
+          <p class="carta-papel__data">Coração de Jesus/MG, novembro de 2026.</p>
+
+          <p class="carta-papel__saudacao">
+            Aos nossos queridos doadores,
+          </p>
+
+          <div class="carta-papel__corpo">
+            <p>
+              Há gestos que mudam um dia. Outros mudam uma vida inteira. Cada
+              doação que chega à Fundação Antônio Augusto de Mattos carrega um
+              pouco dos dois — e é por isso que escrevemos esta carta aberta:
+              para dizer, com o coração inteiro, <strong>muito obrigado</strong>.
+            </p>
+
+            <p>
+              Graças à generosidade de cada um de vocês, os dias dos nossos
+              idosos ganharam mais conforto, mais companhia e mais esperança. O
+              que vocês oferecem — tempo, recursos, oração ou uma palavra de
+              incentivo — transforma-se em cuidado, em dignidade e em vida.
+            </p>
+
+            <p>
+              Quem convive com os nossos moradores sabe: são os pequenos gestos
+              que fazem a diferença. Uma visita, uma necessidade atendida, um
+              abraço, a certeza de que alguém pensou neles. Cada detalhe
+              preparado por vocês chega até aqui como prova de amor.
+            </p>
+
+            <blockquote class="carta-destaque">
+              Nenhum gesto de amor é pequeno quando chega a quem espera por
+              cuidado.
+            </blockquote>
+
+            <p>
+              A cada doador e a todos os que oraram, divulgaram e se dispuseram
+              a ajudar, registramos a nossa gratidão. O bem que vocês fazem tem
+              nome, tem rosto e tem história: é o rosto de cada idoso que se
+              sente lembrado, respeitado e amado.
+            </p>
+
+            <p>
+              Que Deus abençoe e multiplique a bondade de cada um. Que esta
+              parceria continue florescendo, porque é na soma dos pequenos
+              gestos que se constrói um cuidado grande — e é assim que seguimos,
+              juntos, amando o próximo como a nós mesmos.
+            </p>
+          </div>
+
+          <blockquote class="carta-papel__versiculo">
+            <p>“Tudo o que fizerdes, fazei-o de todo o coração, como para o Senhor.”</p>
+            <cite>Colossenses 3:23</cite>
+          </blockquote>
+
+          <footer class="carta-assinatura">
+            <p>Com carinho e gratidão,</p>
+            <p class="carta-assinatura__nome">Fundação Antônio Augusto de Mattos</p>
+            <p class="carta-assinatura__cargo">
+              FAAM · Em nome de todos os moradores e de toda a equipe
+            </p>
+          </footer>
+        </article>
+
+        <div class="carta-popup__acoes">
+          <a href="#como-ajudar" class="btn btn--gold" data-carta-acao>
+            <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
+            Quero ajudar
+          </a>
+          <a href="carta.html" class="btn btn--outline" data-carta-acao>
+            Ver carta em página inteira
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+
+        <p class="carta-popup__rodape">Use o X ou a tecla Esc para fechar</p>
+      </div>
+    </div>
   </div>
 
   <script src="js/main.js"></script>

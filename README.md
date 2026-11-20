@@ -18,6 +18,7 @@ servidor. Basta publicar os arquivos no GitHub Pages.
 - Transparência: dados institucionais e canal direto com a secretaria
 - Contato: telefone, e-mail, endereço, mapa e formulário
 - Link para o Instagram oficial
+- Carta aberta aos doadores em popup (abre uma vez por sessão) e em página própria, com versão para impressão/PDF
 - Página 404 personalizada
 - Layout responsivo (celular, tablet e computador) e acessível
 
@@ -28,9 +29,11 @@ servidor. Basta publicar os arquivos no GitHub Pages.
 ```
 faam-site/
 ├── index.html                  Página principal
+├── carta.html                  Carta aberta aos doadores
 ├── 404.html                    Página de erro
 ├── css/
-│   └── style.css               Todo o estilo do site
+│   ├── style.css               Todo o estilo do site
+│   └── carta.css               Estilo exclusivo da carta
 ├── js/
 │   └── main.js                 Menu, galeria, formulário e animações
 ├── images/

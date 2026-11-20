@@ -349,6 +349,125 @@
   });
 
   /* ------------------------------------------------------------------
+     Popup da carta aberta aos doadores
+     ------------------------------------------------------------------ */
+  const cartaPopup = document.getElementById("cartaPopup");
+
+  if (cartaPopup) {
+    const cartaCard = cartaPopup.querySelector(".carta-popup__card");
+    const cartaRolagem = cartaPopup.querySelector(".carta-popup__rolagem");
+    const cartaFechar = cartaPopup.querySelector(".carta-popup__fechar");
+    const botoesAbrirCarta = document.querySelectorAll("[data-carta-open]");
+
+    let focoAntesCarta = null;
+    let cartaAberta = false;
+    let timerFecharCarta = null;
+
+    const focaveisCarta = () =>
+      Array.from(
+        cartaCard.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
+
+    const abrirCarta = () => {
+      if (cartaAberta) return;
+      cartaAberta = true;
+
+      if (timerFecharCarta) {
+        window.clearTimeout(timerFecharCarta);
+        timerFecharCarta = null;
+      }
+
+      focoAntesCarta = document.activeElement;
+      cartaPopup.hidden = false;
+      if (cartaRolagem) cartaRolagem.scrollTop = 0;
+      document.body.classList.add("carta-aberta");
+
+      requestAnimationFrame(() => cartaPopup.classList.add("is-open"));
+      window.setTimeout(() => cartaFechar.focus(), reduzirMovimento ? 0 : 60);
+    };
+
+    const fecharCarta = () => {
+      if (!cartaAberta) return;
+      cartaAberta = false;
+
+      cartaPopup.classList.remove("is-open");
+      document.body.classList.remove("carta-aberta");
+
+      timerFecharCarta = window.setTimeout(() => {
+        cartaPopup.hidden = true;
+        timerFecharCarta = null;
+        if (focoAntesCarta && typeof focoAntesCarta.focus === "function") {
+          focoAntesCarta.focus({ preventScroll: true });
+        }
+      }, reduzirMovimento ? 0 : 300);
+    };
+
+    botoesAbrirCarta.forEach((botao) => {
+      botao.addEventListener("click", (e) => {
+        e.preventDefault();
+        abrirCarta();
+      });
+    });
+
+    cartaPopup.querySelectorAll("[data-carta-fechar]").forEach((el) => {
+      el.addEventListener("click", fecharCarta);
+    });
+
+    cartaPopup.querySelectorAll("[data-carta-acao]").forEach((link) => {
+      link.addEventListener("click", fecharCarta);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!cartaAberta) return;
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        fecharCarta();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focaveis = focaveisCarta();
+      if (!focaveis.length) return;
+
+      const primeiro = focaveis[0];
+      const ultimo = focaveis[focaveis.length - 1];
+
+      if (e.shiftKey && document.activeElement === primeiro) {
+        e.preventDefault();
+        ultimo.focus();
+      } else if (!e.shiftKey && document.activeElement === ultimo) {
+        e.preventDefault();
+        primeiro.focus();
+      }
+    });
+
+    // Abre sozinha uma vez por sessão, com um pequeno respiro depois do carregamento.
+    const abrirAutomaticamente = () => {
+      window.setTimeout(() => {
+        if (cartaAberta) return;
+        abrirCarta();
+        try {
+          sessionStorage.setItem("faamCartaVista", "1");
+        } catch (_) {
+          /* armazenamento indisponível: segue sem registrar */
+        }
+      }, 1400);
+    };
+
+    try {
+      if (!sessionStorage.getItem("faamCartaVista")) abrirAutomaticamente();
+    } catch (_) {
+      abrirAutomaticamente();
+    }
+
+    if (window.location.hash === "#carta") abrirCarta();
+  }
+
+  /* ------------------------------------------------------------------
      Ano atual no rodapé
      ------------------------------------------------------------------ */
   const ano = document.getElementById("anoAtual");
