@@ -299,7 +299,7 @@
 
       const assuntoEmail = "[Site FAAM] " + assunto + " — " + nome;
       const link =
-        "mailto:secretariafaam@hotmail.com" +
+        "mailto:contato@ilpifaam.org" +
         "?subject=" + encodeURIComponent(assuntoEmail) +
         "&body=" + encodeURIComponent(corpo);
 

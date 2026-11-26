@@ -208,7 +208,7 @@ O mesmo vale para `og:url`, se você adicionar essa tag.
 
 O formulário não usa servidor: ao enviar, ele abre o aplicativo de e-mail do
 visitante com a mensagem já preenchida, destinada a
-`secretariafaam@hotmail.com`.
+`contato@ilpifaam.org`.
 
 Se no futuro quiser receber as mensagens direto no site (sem depender do
 e-mail), será preciso um serviço externo como Formspree, Netlify Forms ou um
@@ -243,7 +243,7 @@ o envio no `js/main.js`.
 
 **FAAM — Fundação Antônio Augusto de Mattos**
 Rua João Lafetá, 220 — Centro · Coração de Jesus/MG · CEP 39340-000
-Telefone: (38) 3228-1611 · E-mail: secretariafaam@hotmail.com
+Telefone: (38) 3228-1611 · E-mail: contato@ilpifaam.org
 CNPJ 08.850.114/0001-32
 
 > “Ame o seu próximo como a si mesmo.”
