@@ -136,7 +136,9 @@
   const lbClose = document.getElementById("lbClose");
   const lbPrev = document.getElementById("lbPrev");
   const lbNext = document.getElementById("lbNext");
-  const itensGaleria = Array.from(document.querySelectorAll(".galeria__item"));
+  const itensGaleria = Array.from(
+    document.querySelectorAll(".galeria__item, .natal__card")
+  );
 
   let indiceAtual = 0;
   let elementoFocadoAntes = null;
@@ -349,88 +351,78 @@
   });
 
   /* ------------------------------------------------------------------
-     Popup da carta aberta aos doadores
+     Popup da campanha de Natal
      ------------------------------------------------------------------ */
-  const cartaPopup = document.getElementById("cartaPopup");
+  const natalPopup = document.getElementById("natalPopup");
 
-  if (cartaPopup) {
-    const cartaCard = cartaPopup.querySelector(".carta-popup__card");
-    const cartaRolagem = cartaPopup.querySelector(".carta-popup__rolagem");
-    const cartaFechar = cartaPopup.querySelector(".carta-popup__fechar");
-    const botoesAbrirCarta = document.querySelectorAll("[data-carta-open]");
+  if (natalPopup) {
+    const natalCard = natalPopup.querySelector(".natal-popup__card");
+    const natalFechar = natalPopup.querySelector(".natal-popup__fechar");
 
-    let focoAntesCarta = null;
-    let cartaAberta = false;
-    let timerFecharCarta = null;
+    let focoAntesNatal = null;
+    let natalAberto = false;
+    let timerFecharNatal = null;
 
-    const focaveisCarta = () =>
+    const focaveisNatal = () =>
       Array.from(
-        cartaCard.querySelectorAll(
+        natalCard.querySelectorAll(
           'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
         )
       ).filter((el) => el.offsetParent !== null);
 
-    const abrirCarta = () => {
-      if (cartaAberta) return;
-      cartaAberta = true;
+    const abrirNatal = () => {
+      if (natalAberto) return;
+      natalAberto = true;
 
-      if (timerFecharCarta) {
-        window.clearTimeout(timerFecharCarta);
-        timerFecharCarta = null;
+      if (timerFecharNatal) {
+        window.clearTimeout(timerFecharNatal);
+        timerFecharNatal = null;
       }
 
-      focoAntesCarta = document.activeElement;
-      cartaPopup.hidden = false;
-      if (cartaRolagem) cartaRolagem.scrollTop = 0;
-      document.body.classList.add("carta-aberta");
+      focoAntesNatal = document.activeElement;
+      natalPopup.hidden = false;
+      document.body.classList.add("natal-aberto");
 
-      requestAnimationFrame(() => cartaPopup.classList.add("is-open"));
-      window.setTimeout(() => cartaFechar.focus(), reduzirMovimento ? 0 : 60);
+      requestAnimationFrame(() => natalPopup.classList.add("is-open"));
+      window.setTimeout(() => natalFechar.focus(), reduzirMovimento ? 0 : 60);
     };
 
-    const fecharCarta = () => {
-      if (!cartaAberta) return;
-      cartaAberta = false;
+    const fecharNatal = () => {
+      if (!natalAberto) return;
+      natalAberto = false;
 
-      cartaPopup.classList.remove("is-open");
-      document.body.classList.remove("carta-aberta");
+      natalPopup.classList.remove("is-open");
+      document.body.classList.remove("natal-aberto");
 
-      timerFecharCarta = window.setTimeout(() => {
-        cartaPopup.hidden = true;
-        timerFecharCarta = null;
-        if (focoAntesCarta && typeof focoAntesCarta.focus === "function") {
-          focoAntesCarta.focus({ preventScroll: true });
+      timerFecharNatal = window.setTimeout(() => {
+        natalPopup.hidden = true;
+        timerFecharNatal = null;
+        if (focoAntesNatal && typeof focoAntesNatal.focus === "function") {
+          focoAntesNatal.focus({ preventScroll: true });
         }
       }, reduzirMovimento ? 0 : 300);
     };
 
-    botoesAbrirCarta.forEach((botao) => {
-      botao.addEventListener("click", (e) => {
-        e.preventDefault();
-        abrirCarta();
-      });
+    natalPopup.querySelectorAll("[data-natal-fechar]").forEach((el) => {
+      el.addEventListener("click", fecharNatal);
     });
 
-    cartaPopup.querySelectorAll("[data-carta-fechar]").forEach((el) => {
-      el.addEventListener("click", fecharCarta);
-    });
-
-    cartaPopup.querySelectorAll("[data-carta-acao]").forEach((link) => {
-      link.addEventListener("click", fecharCarta);
+    natalPopup.querySelectorAll("[data-natal-acao]").forEach((link) => {
+      link.addEventListener("click", fecharNatal);
     });
 
     document.addEventListener("keydown", (e) => {
-      if (!cartaAberta) return;
+      if (!natalAberto) return;
 
       if (e.key === "Escape") {
         e.preventDefault();
-        fecharCarta();
+        fecharNatal();
         return;
       }
 
       if (e.key !== "Tab") return;
 
-      const focaveis = focaveisCarta();
+      const focaveis = focaveisNatal();
       if (!focaveis.length) return;
 
       const primeiro = focaveis[0];
@@ -448,23 +440,23 @@
     // Abre sozinha uma vez por sessão, com um pequeno respiro depois do carregamento.
     const abrirAutomaticamente = () => {
       window.setTimeout(() => {
-        if (cartaAberta) return;
-        abrirCarta();
+        if (natalAberto) return;
+        abrirNatal();
         try {
-          sessionStorage.setItem("faamCartaVista", "1");
+          sessionStorage.setItem("faamNatalVista", "1");
         } catch (_) {
           /* armazenamento indisponível: segue sem registrar */
         }
-      }, 1400);
+      }, 1600);
     };
 
     try {
-      if (!sessionStorage.getItem("faamCartaVista")) abrirAutomaticamente();
+      if (!sessionStorage.getItem("faamNatalVista")) abrirAutomaticamente();
     } catch (_) {
       abrirAutomaticamente();
     }
 
-    if (window.location.hash === "#carta") abrirCarta();
+    if (window.location.hash === "#natal") abrirNatal();
   }
 
   /* ------------------------------------------------------------------

@@ -18,7 +18,9 @@ servidor. Basta publicar os arquivos no GitHub Pages.
 - Transparência: dados institucionais e canal direto com a secretaria
 - Contato: telefone, e-mail, endereço, mapa e formulário
 - Link para o Instagram oficial
-- Carta aberta aos doadores em popup (abre uma vez por sessão) e em página própria, com versão para impressão/PDF
+- Carta aberta aos doadores em página própria, com versão para impressão/PDF
+- **Campanha de Natal**: seção com os desejos dos moradores (uma foto por pessoa,
+  com nome e presente desejado), lightbox e popup que abre uma vez por sessão
 - Página 404 personalizada
 - Layout responsivo (celular, tablet e computador) e acessível
 
@@ -33,10 +35,12 @@ faam-site/
 ├── 404.html                    Página de erro
 ├── css/
 │   ├── style.css               Todo o estilo do site
-│   └── carta.css               Estilo exclusivo da carta
+│   ├── carta.css               Estilo exclusivo da carta
+│   └── natal.css               Campanha de Natal (seção e popup)
 ├── js/
 │   └── main.js                 Menu, galeria, formulário e animações
 ├── images/
+│   ├── natal/                  Fotos da campanha de Natal (JPG + WebP)
 │   ├── logo-emblema.svg        Símbolo oficial da FAAM (vetor, fundo claro)
 │   ├── logo-emblema-branco.svg Símbolo da FAAM em branco (fundo escuro)
 │   ├── logo-faam.svg           Logo completa: símbolo + FAAM + legendas (vetor)

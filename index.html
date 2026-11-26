@@ -32,6 +32,7 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/carta.css">
+  <link rel="stylesheet" href="css/natal.css">
 
   <!-- Dados estruturados para o Google -->
   <script type="application/ld+json">
@@ -110,7 +111,8 @@
         <ul class="nav__list">
           <li><a href="#sobre" class="nav__link">A Fundação</a></li>
           <li><a href="#cuidados" class="nav__link">Cuidados</a></li>
-          <li><a href="#galeria" class="nav__link">Galeria</a></li>
+          <li><a href="#natal" class="nav__link nav__link--campanha"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>Adote um idoso</a></li>
+          <!-- galeria desativada: <li><a href="#galeria" class="nav__link">Galeria</a></li> -->
           <li><a href="#como-ajudar" class="nav__link">Como ajudar</a></li>
           <li><a href="#transparencia" class="nav__link">Transparência</a></li>
           <li><a href="#contato" class="nav__link">Contato</a></li>
@@ -157,7 +159,7 @@
             <a href="#como-ajudar" class="btn btn--outline">Como ajudar</a>
           </div>
 
-          <a href="carta.html" class="hero__carta-link" data-carta-open>
+          <a href="carta.html" class="hero__carta-link">
             <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
             Leia a carta aberta aos doadores
           </a>
@@ -341,7 +343,9 @@
     </section>
 
     <!-- Galeria -->
-    <section class="section" id="galeria">
+    <!-- SEÇÃO DA GALERIA DESATIVADA por enquanto (campanha de Natal no lugar).
+         Para voltar: tirar o atributo hidden da linha abaixo. -->
+    <section class="section" id="galeria" hidden>
       <div class="container">
         <div class="section__head">
           <div>
@@ -470,6 +474,237 @@
           Fotos publicadas no Instagram da FAAM.
           <a href="https://www.instagram.com/fundacaoantoniodemattosfaam/" target="_blank" rel="noopener">Ver mais no perfil</a>
         </p>
+      </div>
+    </section>
+
+    <!-- Campanha de Natal -->
+    <section class="section natal" id="natal">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="kicker reveal">Campanha de Natal</p>
+            <h2 class="reveal">O presente que cada um <em>escreveu à mão</em>.</h2>
+          </div>
+          <p class="lead reveal">
+            Nossos moradores escreveram, em uma cartolina, o que desejam ganhar
+            neste Natal. Escolha um nome, realize o desejo e traga mais alegria
+            para quem tanto nos dá carinho. Toque em uma foto para ampliar.
+          </p>
+        </div>
+
+        <div class="natal__grid">
+          <button class="natal__card reveal" type="button" data-index="12" data-caption="Etiene deseja: Vestido (tamanho G)" aria-label="Ampliar foto: Etiene">
+            <picture>
+              <source srcset="images/natal/01-etiene.webp" type="image/webp">
+              <img src="images/natal/01-etiene.jpg" alt="Etiene, morador(a) da FAAM, deseja ganhar vestido (tamanho g) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Etiene</strong><span>deseja: Vestido (tamanho G)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="13" data-caption="Angélica deseja: Vestido (tamanho P)" aria-label="Ampliar foto: Angélica" style="--d:0.04s">
+            <picture>
+              <source srcset="images/natal/02-angelica.webp" type="image/webp">
+              <img src="images/natal/02-angelica.jpg" alt="Angélica, morador(a) da FAAM, deseja ganhar vestido (tamanho p) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Angélica</strong><span>deseja: Vestido (tamanho P)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="14" data-caption="Ana Maria deseja: Blazer (tamanho M)" aria-label="Ampliar foto: Ana Maria" style="--d:0.08s">
+            <picture>
+              <source srcset="images/natal/03-ana-maria.webp" type="image/webp">
+              <img src="images/natal/03-ana-maria.jpg" alt="Ana Maria, morador(a) da FAAM, deseja ganhar blazer (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Ana Maria</strong><span>deseja: Blazer (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="15" data-caption="Adelina deseja: Vestido de flor rosa (tamanho P)" aria-label="Ampliar foto: Adelina" style="--d:0.12s">
+            <picture>
+              <source srcset="images/natal/04-adelina.webp" type="image/webp">
+              <img src="images/natal/04-adelina.jpg" alt="Adelina, morador(a) da FAAM, deseja ganhar vestido de flor rosa (tamanho p) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Adelina</strong><span>deseja: Vestido de flor rosa (tamanho P)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="16" data-caption="Francisco deseja: Camisa (tamanho G)" aria-label="Ampliar foto: Francisco" style="--d:0.16s">
+            <picture>
+              <source srcset="images/natal/05-francisco.webp" type="image/webp">
+              <img src="images/natal/05-francisco.jpg" alt="Francisco, morador(a) da FAAM, deseja ganhar camisa (tamanho g) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Francisco</strong><span>deseja: Camisa (tamanho G)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="17" data-caption="Jerônimo deseja: Boné" aria-label="Ampliar foto: Jerônimo" style="--d:0.20s">
+            <picture>
+              <source srcset="images/natal/06-jeronimo.webp" type="image/webp">
+              <img src="images/natal/06-jeronimo.jpg" alt="Jerônimo, morador(a) da FAAM, deseja ganhar boné neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Jerônimo</strong><span>deseja: Boné</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="18" data-caption="Itabajara deseja: Camisa (tamanho M)" aria-label="Ampliar foto: Itabajara" style="--d:0.24s">
+            <picture>
+              <source srcset="images/natal/07-itabajara.webp" type="image/webp">
+              <img src="images/natal/07-itabajara.jpg" alt="Itabajara, morador(a) da FAAM, deseja ganhar camisa (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Itabajara</strong><span>deseja: Camisa (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="19" data-caption="Domingas deseja: Perfume" aria-label="Ampliar foto: Domingas" style="--d:0.28s">
+            <picture>
+              <source srcset="images/natal/08-domingas.webp" type="image/webp">
+              <img src="images/natal/08-domingas.jpg" alt="Domingas, morador(a) da FAAM, deseja ganhar perfume neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Domingas</strong><span>deseja: Perfume</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="20" data-caption="Claudino deseja: Chapéu" aria-label="Ampliar foto: Claudino" style="--d:0.32s">
+            <picture>
+              <source srcset="images/natal/09-claudino.webp" type="image/webp">
+              <img src="images/natal/09-claudino.jpg" alt="Claudino, morador(a) da FAAM, deseja ganhar chapéu neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Claudino</strong><span>deseja: Chapéu</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="21" data-caption="Evaneuza deseja: Vestido (tamanho GG)" aria-label="Ampliar foto: Evaneuza" style="--d:0.36s">
+            <picture>
+              <source srcset="images/natal/10-evaneuza.webp" type="image/webp">
+              <img src="images/natal/10-evaneuza.jpg" alt="Evaneuza, morador(a) da FAAM, deseja ganhar vestido (tamanho gg) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Evaneuza</strong><span>deseja: Vestido (tamanho GG)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="22" data-caption="Geralda deseja: Calça legging e blusa (tamanho M)" aria-label="Ampliar foto: Geralda" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/11-geralda.webp" type="image/webp">
+              <img src="images/natal/11-geralda.jpg" alt="Geralda, morador(a) da FAAM, deseja ganhar calça legging e blusa (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Geralda</strong><span>deseja: Calça legging e blusa (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="23" data-caption="Edimar deseja: Sandália (tamanho 40/41)" aria-label="Ampliar foto: Edimar" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/12-edimar.webp" type="image/webp">
+              <img src="images/natal/12-edimar.jpg" alt="Edimar, morador(a) da FAAM, deseja ganhar sandália (tamanho 40/41) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Edimar</strong><span>deseja: Sandália (tamanho 40/41)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="24" data-caption="José Fagundes deseja: Camisa (tamanho M)" aria-label="Ampliar foto: José Fagundes" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/13-jose-fagundes.webp" type="image/webp">
+              <img src="images/natal/13-jose-fagundes.jpg" alt="José Fagundes, morador(a) da FAAM, deseja ganhar camisa (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>José Fagundes</strong><span>deseja: Camisa (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="25" data-caption="José Aparecido deseja: Short com elástico (tamanho M)" aria-label="Ampliar foto: José Aparecido" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/14-jose-aparecido.webp" type="image/webp">
+              <img src="images/natal/14-jose-aparecido.jpg" alt="José Aparecido, morador(a) da FAAM, deseja ganhar short com elástico (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>José Aparecido</strong><span>deseja: Short com elástico (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="26" data-caption="Joaquim deseja: Calça com elástico (tamanho M)" aria-label="Ampliar foto: Joaquim" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/15-joaquim.webp" type="image/webp">
+              <img src="images/natal/15-joaquim.jpg" alt="Joaquim, morador(a) da FAAM, deseja ganhar calça com elástico (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Joaquim</strong><span>deseja: Calça com elástico (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="27" data-caption="Hélia deseja: Colar" aria-label="Ampliar foto: Hélia" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/16-helia.webp" type="image/webp">
+              <img src="images/natal/16-helia.jpg" alt="Hélia, morador(a) da FAAM, deseja ganhar colar neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Hélia</strong><span>deseja: Colar</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="28" data-caption="Gilberto deseja: Boné" aria-label="Ampliar foto: Gilberto" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/17-gilberto.webp" type="image/webp">
+              <img src="images/natal/17-gilberto.jpg" alt="Gilberto, morador(a) da FAAM, deseja ganhar boné neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Gilberto</strong><span>deseja: Boné</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="29" data-caption="Francine deseja: Vestido com brilho na frente (tamanho G)" aria-label="Ampliar foto: Francine" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/18-francine.webp" type="image/webp">
+              <img src="images/natal/18-francine.jpg" alt="Francine, morador(a) da FAAM, deseja ganhar vestido com brilho na frente (tamanho g) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Francine</strong><span>deseja: Vestido com brilho na frente (tamanho G)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="30" data-caption="Floripes deseja: Vestido (tamanho P)" aria-label="Ampliar foto: Floripes" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/19-floripes.webp" type="image/webp">
+              <img src="images/natal/19-floripes.jpg" alt="Floripes, morador(a) da FAAM, deseja ganhar vestido (tamanho p) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Floripes</strong><span>deseja: Vestido (tamanho P)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="31" data-caption="Hilton deseja: Blusa (tamanho GG)" aria-label="Ampliar foto: Hilton" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/20-hilton.webp" type="image/webp">
+              <img src="images/natal/20-hilton.jpg" alt="Hilton, morador(a) da FAAM, deseja ganhar blusa (tamanho gg) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Hilton</strong><span>deseja: Blusa (tamanho GG)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="32" data-caption="Claudinei deseja: Bermuda (tamanho G)" aria-label="Ampliar foto: Claudinei" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/21-claudinei.webp" type="image/webp">
+              <img src="images/natal/21-claudinei.jpg" alt="Claudinei, morador(a) da FAAM, deseja ganhar bermuda (tamanho g) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Claudinei</strong><span>deseja: Bermuda (tamanho G)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="33" data-caption="Augusto deseja: Blusa (tamanho M)" aria-label="Ampliar foto: Augusto" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/22-augusto.webp" type="image/webp">
+              <img src="images/natal/22-augusto.jpg" alt="Augusto, morador(a) da FAAM, deseja ganhar blusa (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Augusto</strong><span>deseja: Blusa (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="34" data-caption="Juraci deseja: Boné" aria-label="Ampliar foto: Juraci" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/23-juraci.webp" type="image/webp">
+              <img src="images/natal/23-juraci.jpg" alt="Juraci, morador(a) da FAAM, deseja ganhar boné neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Juraci</strong><span>deseja: Boné</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="36" data-caption="Maria Inês deseja: Sandália 35/36 e camisola (tamanho GG)" aria-label="Ampliar foto: Maria Inês" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/24-maria-ines.webp" type="image/webp">
+              <img src="images/natal/24-maria-ines.jpg" alt="Maria Inês, morador(a) da FAAM, deseja ganhar sandália 35/36 e camisola (tamanho gg) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Maria Inês</strong><span>deseja: Sandália 35/36 e camisola (tamanho GG)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="37" data-caption="Maria Geralda deseja: Sandália 35/36" aria-label="Ampliar foto: Maria Geralda" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/25-maria-geralda.webp" type="image/webp">
+              <img src="images/natal/25-maria-geralda.jpg" alt="Maria Geralda, morador(a) da FAAM, deseja ganhar sandália 35/36 neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Maria Geralda</strong><span>deseja: Sandália 35/36</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="38" data-caption="Maria da Conceição deseja: Saia longa (tamanho M)" aria-label="Ampliar foto: Maria da Conceição" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/26-maria-da-conceicao.webp" type="image/webp">
+              <img src="images/natal/26-maria-da-conceicao.jpg" alt="Maria da Conceição, morador(a) da FAAM, deseja ganhar saia longa (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Maria da Conceição</strong><span>deseja: Saia longa (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="39" data-caption="Maria do Perpétuo deseja: Blusa com estampa de santo (tamanho M)" aria-label="Ampliar foto: Maria do Perpétuo" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/27-maria-do-perpetuo.webp" type="image/webp">
+              <img src="images/natal/27-maria-do-perpetuo.jpg" alt="Maria do Perpétuo, morador(a) da FAAM, deseja ganhar blusa com estampa de santo (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Maria do Perpétuo</strong><span>deseja: Blusa com estampa de santo (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="40" data-caption="Marcia deseja: Saia longa (tamanho M)" aria-label="Ampliar foto: Marcia" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/28-marcia.webp" type="image/webp">
+              <img src="images/natal/28-marcia.jpg" alt="Marcia, morador(a) da FAAM, deseja ganhar saia longa (tamanho m) neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Marcia</strong><span>deseja: Saia longa (tamanho M)</span></span>
+          </button>
+          <button class="natal__card reveal" type="button" data-index="41" data-caption="Madalena deseja: Perfume" aria-label="Ampliar foto: Madalena" style="--d:0.40s">
+            <picture>
+              <source srcset="images/natal/29-madalena.webp" type="image/webp">
+              <img src="images/natal/29-madalena.jpg" alt="Madalena, morador(a) da FAAM, deseja ganhar perfume neste Natal" loading="lazy" width="760" height="1351">
+            </picture>
+            <span class="natal__card-info"><strong>Madalena</strong><span>deseja: Perfume</span></span>
+          </button>
+        </div>
+
+        <div class="natal__acoes reveal">
+          <a href="#como-ajudar" class="btn btn--gold">
+            <svg class="icon" aria-hidden="true"><use href="#i-gift"></use></svg>
+            Quero presentear um morador
+          </a>
+          <a href="carta.html" class="btn btn--outline">Conheça a carta aberta</a>
+        </div>
       </div>
     </section>
 
@@ -786,11 +1021,12 @@
         <ul>
           <li><a href="#sobre">A Fundação</a></li>
           <li><a href="#cuidados">Cuidados</a></li>
-          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#natal">Adote um idoso</a></li>
+          <!-- galeria desativada: <li><a href="#galeria">Galeria</a></li> -->
           <li><a href="#como-ajudar">Como ajudar</a></li>
           <li><a href="#transparencia">Transparência</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="carta.html" data-carta-open>Carta aberta aos doadores</a></li>
+          <li><a href="carta.html">Carta aberta aos doadores</a></li>
         </ul>
       </nav>
 
@@ -847,109 +1083,44 @@
     </button>
   </div>
 
-  <!-- Popup: carta aberta aos doadores -->
-  <div class="carta-popup" id="cartaPopup" role="dialog" aria-modal="true" aria-labelledby="cartaPopupTitulo" hidden>
-    <div class="carta-popup__overlay" data-carta-fechar></div>
 
-    <div class="carta-popup__card" role="document">
-      <button type="button" class="carta-popup__fechar" data-carta-fechar aria-label="Fechar carta aberta aos doadores">
+  <!-- Popup: campanha de Natal -->
+  <div class="natal-popup" id="natalPopup" role="dialog" aria-modal="true" aria-labelledby="natalPopupTitulo" hidden>
+    <div class="natal-popup__overlay" data-natal-fechar></div>
+
+    <div class="natal-popup__card" role="document">
+      <button type="button" class="natal-popup__fechar" data-natal-fechar aria-label="Fechar campanha de Natal">
         <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
       </button>
 
-      <header class="carta-popup__topo">
-        <p class="kicker">Carta aberta aos doadores</p>
-        <h2 id="cartaPopupTitulo">Obrigado por <em>fazer parte</em> desta história.</h2>
+      <div class="natal-popup__midia">
+        <picture>
+          <source srcset="images/natal/30-flyer-natal.webp" type="image/webp">
+          <img src="images/natal/30-flyer-natal.jpg" alt="Neste Natal, espalhe amor — apadrinhe um interno da FAAM" width="760" height="1351">
+        </picture>
+      </div>
+
+      <div class="natal-popup__conteudo">
+        <p class="kicker">Campanha de Natal da FAAM</p>
+        <h2 id="natalPopupTitulo">Neste Natal, <em>espalhe amor</em>.</h2>
         <p>
-          Uma carta aberta a todos os doadores que, com generosidade, tornam
-          possível o cuidado, o carinho e a dignidade dos nossos idosos.
+          Vinte e nove moradores escreveram à mão o que desejam ganhar este ano —
+          um vestido, um boné, uma sandália, um perfume. Você pode realizar
+          o desejo de alguém.
         </p>
-      </header>
-
-      <div class="carta-popup__rolagem">
-        <article class="carta-papel">
-          <header class="carta-papel__cabecalho">
-            <img src="images/logo-emblema.svg" alt="" class="carta-papel__logo" width="46" height="46" loading="lazy">
-            <div class="carta-papel__marca">
-              <strong>Fundação Antônio Augusto de Mattos</strong>
-              <span>Rua João Lafetá, 220 · Centro · Coração de Jesus/MG</span>
-              <span>CNPJ 08.850.114/0001-32</span>
-            </div>
-          </header>
-
-          <p class="carta-papel__data">Coração de Jesus/MG, novembro de 2026.</p>
-
-          <p class="carta-papel__saudacao">
-            Aos nossos queridos doadores,
-          </p>
-
-          <div class="carta-papel__corpo">
-            <p>
-              Há gestos que mudam um dia. Outros mudam uma vida inteira. Cada
-              doação que chega à Fundação Antônio Augusto de Mattos carrega um
-              pouco dos dois — e é por isso que escrevemos esta carta aberta:
-              para dizer, com o coração inteiro, <strong>muito obrigado</strong>.
-            </p>
-
-            <p>
-              Graças à generosidade de cada um de vocês, os dias dos nossos
-              idosos ganharam mais conforto, mais companhia e mais esperança. O
-              que vocês oferecem — tempo, recursos, oração ou uma palavra de
-              incentivo — transforma-se em cuidado, em dignidade e em vida.
-            </p>
-
-            <p>
-              Quem convive com os nossos moradores sabe: são os pequenos gestos
-              que fazem a diferença. Uma visita, uma necessidade atendida, um
-              abraço, a certeza de que alguém pensou neles. Cada detalhe
-              preparado por vocês chega até aqui como prova de amor.
-            </p>
-
-            <blockquote class="carta-destaque">
-              Nenhum gesto de amor é pequeno quando chega a quem espera por
-              cuidado.
-            </blockquote>
-
-            <p>
-              A cada doador e a todos os que oraram, divulgaram e se dispuseram
-              a ajudar, registramos a nossa gratidão. O bem que vocês fazem tem
-              nome, tem rosto e tem história: é o rosto de cada idoso que se
-              sente lembrado, respeitado e amado.
-            </p>
-
-            <p>
-              Que Deus abençoe e multiplique a bondade de cada um. Que esta
-              parceria continue florescendo, porque é na soma dos pequenos
-              gestos que se constrói um cuidado grande — e é assim que seguimos,
-              juntos, amando o próximo como a nós mesmos.
-            </p>
-          </div>
-
-          <blockquote class="carta-papel__versiculo">
-            <p>“Tudo o que fizerdes, fazei-o de todo o coração, como para o Senhor.”</p>
-            <cite>Colossenses 3:23</cite>
-          </blockquote>
-
-          <footer class="carta-assinatura">
-            <p>Com carinho e gratidão,</p>
-            <p class="carta-assinatura__nome">Fundação Antônio Augusto de Mattos</p>
-            <p class="carta-assinatura__cargo">
-              FAAM · Em nome de todos os moradores e de toda a equipe
-            </p>
-          </footer>
-        </article>
-
-        <div class="carta-popup__acoes">
-          <a href="#como-ajudar" class="btn btn--gold" data-carta-acao>
-            <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
-            Quero ajudar
+        <ul class="natal-popup__lista">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg> 29 desejos esperando por você</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-gift"></use></svg> Doações de roupas, calçados e mimos</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pix"></use></svg> Ou contribua com a campanha via Pix</li>
+        </ul>
+        <div class="natal-popup__acoes">
+          <a href="#natal" class="btn btn--gold" data-natal-acao>
+            <svg class="icon" aria-hidden="true"><use href="#i-sparkle"></use></svg>
+            Ver os desejos
           </a>
-          <a href="carta.html" class="btn btn--outline" data-carta-acao>
-            Ver carta em página inteira
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-          </a>
+          <a href="#como-ajudar" class="btn btn--outline" data-natal-acao>Quero doar</a>
         </div>
-
-        <p class="carta-popup__rodape">Use o X ou a tecla Esc para fechar</p>
+        <p class="natal-popup__rodape">Use o X ou a tecla Esc para fechar</p>
       </div>
     </div>
   </div>

@@ -326,6 +326,7 @@ body.tema-natal--luzes .header::after {
   font-weight: 500;
   color: var(--verde-900);
   padding-block: 6px;
+  white-space: nowrap;
   transition: color var(--transicao);
 }
 .nav__link::after {

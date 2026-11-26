@@ -1,0 +1,324 @@
+/* ==========================================================================
+   FAAM — Campanha de Natal
+   Seção de desejos dos moradores + popup da campanha
+   ========================================================================== */
+
+/* ---------- Seção da campanha ---------- */
+.natal {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(820px 460px at 88% 4%, rgba(168, 50, 62, 0.4), transparent 62%),
+    radial-gradient(700px 480px at 0% 100%, rgba(217, 164, 65, 0.16), transparent 62%),
+    var(--verde-900);
+  color: var(--texto-claro);
+}
+.natal > .container { position: relative; z-index: 1; }
+.natal h2 { color: var(--branco); }
+.natal h2 em { color: var(--dourado-claro); font-style: italic; }
+.natal .kicker { color: var(--dourado-claro); }
+.natal .lead { color: rgba(234, 242, 237, 0.86); }
+
+.natal__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
+  gap: 18px;
+}
+
+.natal__card {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--raio);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 34px -20px rgba(0, 0, 0, 0.75);
+  cursor: zoom-in;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.natal__card picture { display: block; }
+.natal__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 760 / 1351;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.natal__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(to top, rgba(6, 40, 27, 0.88) 0%, rgba(6, 40, 27, 0.15) 42%, transparent 65%) padding-box,
+    linear-gradient(160deg, var(--dourado), rgba(217, 164, 65, 0.2)) border-box;
+  opacity: 0;
+  transition: opacity var(--transicao);
+  pointer-events: none;
+}
+.natal__card-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 34px 15px 15px;
+  background: linear-gradient(to top, rgba(6, 40, 27, 0.92), transparent);
+  pointer-events: none;
+}
+.natal__card-info strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: var(--branco);
+  line-height: 1.2;
+}
+.natal__card-info span {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--dourado-claro);
+}
+.natal__card-info--flyer strong { font-size: 0.95rem; }
+
+.natal__card:hover img,
+.natal__card:focus-visible img { transform: scale(1.05); }
+.natal__card:hover::after,
+.natal__card:focus-visible::after { opacity: 1; }
+
+.natal__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(34px, 4vw, 48px);
+}
+.natal .btn--outline {
+  border-color: rgba(240, 206, 134, 0.5);
+  color: var(--dourado-claro);
+}
+.natal .btn--outline:hover {
+  border-color: var(--dourado-claro);
+  background: rgba(240, 206, 134, 0.12);
+}
+
+/* ---------- Popup da campanha ---------- */
+body.natal-aberto { overflow: hidden; }
+
+.natal-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.natal-popup[hidden] { display: none; }
+
+.natal-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 40, 27, 0.7);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.natal-popup.is-open .natal-popup__overlay { opacity: 1; }
+
+.natal-popup__card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  width: min(880px, 100%);
+  max-height: 90svh;
+  overflow: hidden;
+  background: var(--branco);
+  border-radius: 26px;
+  border-top: 5px solid var(--dourado);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.6);
+  transform: translateY(26px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.35s ease;
+}
+.natal-popup.is-open .natal-popup__card { transform: none; opacity: 1; }
+
+.natal-popup__fechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 77, 51, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--verde-800);
+  cursor: pointer;
+  transition: background var(--transicao), color var(--transicao),
+              border-color var(--transicao), transform var(--transicao);
+}
+.natal-popup__fechar .icon { width: 19px; height: 19px; }
+.natal-popup__fechar:hover {
+  background: var(--natal-vermelho);
+  border-color: var(--natal-vermelho);
+  color: var(--branco);
+  transform: rotate(90deg);
+}
+
+.natal-popup__midia {
+  position: relative;
+  background: var(--verde-950);
+}
+.natal-popup__midia picture { display: block; height: 100%; }
+.natal-popup__midia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.natal-popup__conteudo {
+  padding: clamp(30px, 4vw, 46px);
+  overflow-y: auto;
+}
+.natal-popup__conteudo .kicker { margin-bottom: 12px; }
+.natal-popup__conteudo h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--verde-900);
+}
+.natal-popup__conteudo h2 em {
+  font-style: italic;
+  color: var(--natal-vermelho);
+}
+.natal-popup__conteudo > p {
+  margin-top: 14px;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--texto-suave);
+}
+
+.natal-popup__lista {
+  display: grid;
+  gap: 11px;
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--creme-2);
+  list-style: none;
+}
+.natal-popup__lista li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--verde-800);
+}
+.natal-popup__lista .icon {
+  flex: none;
+  width: 19px;
+  height: 19px;
+  color: var(--natal-vermelho);
+}
+
+.natal-popup__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.natal-popup__acoes .btn { padding: 14px 24px; font-size: 0.88rem; }
+
+.natal-popup__rodape {
+  margin-top: 16px;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+/* ---------- Link da campanha no menu ---------- */
+.nav__link--campanha {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--natal-vermelho);
+  font-weight: 600;
+}
+.nav__link--campanha .icon {
+  width: 15px;
+  height: 15px;
+  animation: adote-batimento 1.7s ease-in-out infinite;
+}
+.nav__link--campanha::after { background: var(--natal-vermelho); }
+.nav__link--campanha:hover,
+.nav__link--campanha.ativo { color: var(--natal-vermelho-escuro); }
+.nav__link--campanha:hover::after,
+.nav__link--campanha.ativo::after { transform: scaleX(1); }
+
+@keyframes adote-batimento {
+  0%, 100% { transform: scale(1); }
+  12% { transform: scale(1.24); }
+  24% { transform: scale(1); }
+  36% { transform: scale(1.16); }
+  48% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__link--campanha .icon { animation: none; }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 860px) {
+  .natal-popup__card {
+    grid-template-columns: 1fr;
+    max-height: 92svh;
+    overflow-y: auto;
+    border-radius: 22px;
+  }
+  .natal-popup__midia { max-height: 34svh; }
+  .natal-popup__midia img { object-position: center 22%; }
+}
+
+@media (max-width: 720px) {
+  .natal__grid { grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 13px; }
+  .natal__card-info { padding: 28px 12px 12px; }
+  .natal__card-info strong { font-size: 0.97rem; }
+  .natal__card-info span { font-size: 0.74rem; }
+  .natal-popup { padding: 12px; }
+  .natal-popup__conteudo { padding: 26px 22px 30px; }
+  .natal-popup__acoes .btn { width: 100%; }
+  .natal-popup__fechar { top: 10px; right: 10px; width: 40px; height: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .natal-popup__card { transform: none; transition: opacity 0.2s ease; }
+  .natal-popup__fechar:hover { transform: none; }
+}
+
+/* menu mobile: mesmo comportamento dos demais links */
+@media (max-width: 960px) {
+  .nav__link--campanha { display: block; padding: 15px 0; }
+  .nav__link--campanha .icon { display: none; }
+}
+
+@media print {
+  .natal,
+  .natal-popup { display: none !important; }
+}
