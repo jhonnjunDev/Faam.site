@@ -109,17 +109,6 @@
   border-color: var(--dourado-claro);
   background: rgba(240, 206, 134, 0.12);
 }
-.btn--whatsapp {
-  background: #25d366;
-  border-color: #25d366;
-  color: #0b3d2a;
-}
-.btn--whatsapp .icon { width: 1.15em; height: 1.15em; }
-.btn--whatsapp:hover {
-  background: #1eb95a;
-  border-color: #1eb95a;
-  color: #06291c;
-}
 
 /* ---------- Popup da campanha ---------- */
 body.natal-aberto { overflow: hidden; }
