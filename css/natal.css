@@ -109,6 +109,17 @@
   border-color: var(--dourado-claro);
   background: rgba(240, 206, 134, 0.12);
 }
+.btn--whatsapp {
+  background: #25d366;
+  border-color: #25d366;
+  color: #0b3d2a;
+}
+.btn--whatsapp .icon { width: 1.15em; height: 1.15em; }
+.btn--whatsapp:hover {
+  background: #1eb95a;
+  border-color: #1eb95a;
+  color: #06291c;
+}
 
 /* ---------- Popup da campanha ---------- */
 body.natal-aberto { overflow: hidden; }
@@ -290,10 +301,13 @@ body.natal-aberto { overflow: hidden; }
     grid-template-columns: 1fr;
     max-height: 92svh;
     overflow-y: auto;
+    overscroll-behavior: contain;
     border-radius: 22px;
   }
-  .natal-popup__midia { max-height: 34svh; }
-  .natal-popup__midia img { object-position: center 22%; }
+  .natal-popup__midia { max-height: 26svh; }
+  .natal-popup__midia img { object-position: center 24%; }
+  /* X no canto superior esquerdo para não cobrir o logo da FAAM */
+  .natal-popup__fechar { top: 10px; left: 10px; right: auto; }
 }
 
 @media (max-width: 720px) {
@@ -302,9 +316,28 @@ body.natal-aberto { overflow: hidden; }
   .natal__card-info strong { font-size: 0.97rem; }
   .natal__card-info span { font-size: 0.74rem; }
   .natal-popup { padding: 12px; }
-  .natal-popup__conteudo { padding: 26px 22px 30px; }
-  .natal-popup__acoes .btn { width: 100%; }
-  .natal-popup__fechar { top: 10px; right: 10px; width: 40px; height: 40px; }
+  .natal-popup__conteudo { padding: 22px 20px calc(24px + env(safe-area-inset-bottom)); }
+  .natal-popup__conteudo .kicker { font-size: 0.66rem; letter-spacing: 0.14em; margin-bottom: 10px; }
+  .natal-popup__conteudo h2 { font-size: 1.5rem; }
+  .natal-popup__conteudo > p { margin-top: 10px; font-size: 0.9rem; line-height: 1.55; }
+  .natal-popup__lista { margin-top: 16px; padding: 14px 16px; gap: 9px; }
+  .natal-popup__lista li { font-size: 0.84rem; }
+  .natal-popup__acoes { margin-top: 18px; gap: 8px; }
+  .natal-popup__acoes .btn { width: 100%; padding: 11px 16px; }
+  .natal-popup__fechar { width: 40px; height: 40px; }
+  .natal-popup__rodape { display: none; }
+}
+
+@media (max-width: 860px) and (max-height: 700px) {
+  .natal-popup__midia { max-height: 20svh; }
+  .natal-popup__acoes { display: grid; grid-template-columns: 1fr 1fr; }
+  .natal-popup__acoes .btn {
+    padding: 11px 8px;
+    font-size: 0.78rem;
+    white-space: normal;
+    line-height: 1.15;
+    text-align: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
